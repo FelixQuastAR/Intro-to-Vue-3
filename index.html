@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <title>Vue Mastery</title>
     <!-- Import Styles -->
-    <link rel="stylesheet" href="./assets/styles.css" />
+    <link rel="stylesheet" href="./assets/styles.css"/>
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
-  </head>
-  <body>
-    <div id="app">
-      <div class="nav-bar"></div>
-      
-      <div class="product-display">
-        <div class="product-container">
-          <div class="product-image">
-            <!-- image goes here -->
-          </div>
-          <div class="product-info">
-            <h1>{{ product }}</h1>
-          </div>
-        </div>
-      </div>
-    </div>
+</head>
+<body>
+<div id="testApp">
+    <div class="nav-bar"></div>
 
-    <!-- Import App -->
-    <script src="./main.js"></script>
+    <div class="cart" v-model="cart">Cart({{ cart }})</div>
+    <product-display :premium="premium" :cart="cart" @addi="updateCart"></product-display>
+    <product-details :details="details"></product-details>
+</div>
 
-    <!-- Mount App -->
-    <script>
-      const mountedApp = app.mount('#app')
-    </script>
-  </body>
+<!-- Import App -->
+<script src="./main.js"></script>
+
+<!-- Import Component -->
+<script src="./components/productDisplay.js"></script>
+<script src="./components/productDetails.js"></script>
+
+<!-- Mount App -->
+<script>
+    const mountedApp = testApp.mount('#testApp')
+</script>
+</body>
 </html>
